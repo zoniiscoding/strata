@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+  --color-black: #000000;
+  --color-ink: #111111;
+  --color-paper: #eaeaea;
+  --color-muted: #8c8c8c;
+  --color-line: rgba(234, 234, 234, 0.14);
+  --color-accent: #00ff22;
+  --font-sans: 'Space Grotesk', Arial, sans-serif;
+  --nav-height: 72px;
+  --page-gutter: clamp(1rem, 3vw, 3rem);
+  --section-y: clamp(5rem, 12vw, 10rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-black);
+  font-family: var(--font-sans);
+  scroll-behavior: auto;
+  text-rendering: geometricprecision;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--color-black);
+  color: var(--color-paper);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+canvas {
+  display: block;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-black);
+}
+
+.section {
+  padding: var(--section-y) var(--page-gutter);
+  border-top: 1px solid var(--color-line);
+}
+
+.section__kicker {
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section__title {
+  max-width: 980px;
+  margin: 0;
+  font-size: clamp(2.4rem, 8vw, 7.2rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.section__copy {
+  max-width: 680px;
+  margin: 1.5rem 0 0 auto;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  line-height: 1.5;
+}

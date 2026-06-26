@@ -1,0 +1,37 @@
+.editorial {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  background: var(--color-black);
+}
+
+.editorial__copy {
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+  align-self: start;
+}
+
+.editorial__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+}
+
+.editorial__grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--color-ink);
+}
+
+@media (max-width: 860px) {
+  .editorial {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial__copy {
+    position: static;
+  }
+}
