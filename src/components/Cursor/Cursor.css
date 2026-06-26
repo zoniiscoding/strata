@@ -1,0 +1,37 @@
+.strata-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 18px rgba(0, 255, 34, 0.32);
+  transition:
+    opacity 240ms ease,
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.has-strata-cursor,
+.has-strata-cursor * {
+  cursor: none;
+}
+
+.has-strata-cursor .strata-cursor {
+  opacity: 0.82;
+}
+
+.strata-cursor.is-scene {
+  background: rgba(0, 255, 34, 0.12);
+  box-shadow: 0 0 28px rgba(0, 255, 34, 0.48);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .strata-cursor {
+    display: none;
+  }
+}

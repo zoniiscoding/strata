@@ -1,4 +1,5 @@
 .navbar {
+  --navbar-alpha: 0.72;
   position: fixed;
   top: 0;
   right: 0;
@@ -10,8 +11,11 @@
   min-height: var(--nav-height);
   padding: 0 var(--page-gutter);
   border-bottom: 1px solid var(--color-line);
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, var(--navbar-alpha));
   backdrop-filter: blur(18px);
+  transition:
+    background 400ms ease,
+    border-color 400ms ease;
 }
 
 .navbar__brand img {
@@ -32,11 +36,26 @@
 
 .navbar__nav a,
 .navbar__drop {
-  transition: color 180ms ease;
+  transition:
+    color 240ms ease,
+    opacity 240ms ease,
+    transform 240ms var(--ease-premium);
 }
 
 .navbar__nav a:hover {
   color: var(--color-paper);
+  transform: translateY(-1px);
+}
+
+.navbar__brand {
+  transition:
+    opacity 240ms ease,
+    transform 240ms var(--ease-premium);
+}
+
+.navbar__brand:hover {
+  opacity: 0.76;
+  transform: translateY(-1px);
 }
 
 .navbar__drop {

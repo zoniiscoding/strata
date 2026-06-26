@@ -6,14 +6,15 @@
   place-items: center;
   pointer-events: none;
   background: var(--color-black);
-  opacity: 0;
-  visibility: hidden;
+  animation: loaderExit 1800ms var(--ease-premium) forwards;
 }
 
 .loader__mark {
   font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.18em;
+  opacity: 0;
+  animation: loaderMark 1300ms var(--ease-premium) forwards;
 }
 
 .loader__line {
@@ -24,4 +25,51 @@
   height: 1px;
   background: var(--color-accent);
   transform-origin: left;
+  transform: scaleX(0);
+  animation: loaderLine 1300ms var(--ease-premium) 120ms forwards;
+}
+
+@keyframes loaderMark {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  35%,
+  72% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes loaderLine {
+  0% {
+    transform: scaleX(0);
+  }
+
+  72% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes loaderExit {
+  0%,
+  78% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }

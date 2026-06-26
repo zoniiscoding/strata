@@ -24,6 +24,13 @@ export const assets = {
     environment04,
     environment05,
   ],
+  environment: {
+    brutalistHallway: environment01,
+    parkingGarage: environment02,
+    industrialWarehouse: environment03,
+    concreteRooftop: environment04,
+    steelStaircase: environment05,
+  },
   editorial: [editorial01, editorial02, editorial03, editorial04],
   products: [
     {

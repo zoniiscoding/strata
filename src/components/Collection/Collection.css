@@ -1,45 +1,102 @@
 .collection {
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
   background: var(--color-black);
+}
+
+.collection__header {
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+}
+
+.collection__copy {
+  max-width: 440px;
+  margin-top: 1.4rem;
+  color: var(--color-muted);
+  line-height: 1.55;
 }
 
 .collection__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--color-line);
-  border: 1px solid var(--color-line);
+  gap: clamp(3rem, 7vw, 7rem);
+  background: transparent;
+  border: 0;
 }
 
 .collection__item {
-  min-height: 360px;
-  padding: clamp(1rem, 2vw, 2rem);
-  background: var(--color-black);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(140px, 0.42fr);
+  align-items: end;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.collection__item:nth-child(even) {
+  grid-template-columns: minmax(140px, 0.42fr) minmax(0, 1fr);
+}
+
+.collection__item:nth-child(even) .collection__image {
+  order: 2;
+}
+
+.collection__image {
+  min-height: clamp(420px, 58vw, 720px);
+  border: 1px solid var(--color-line);
 }
 
 .collection__item img {
   width: 100%;
-  height: min(42vw, 420px);
+  height: 100%;
   object-fit: contain;
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
 .collection__item h3 {
-  margin: 1.25rem 0 0;
-  font-size: 0.9rem;
+  margin: 0.4rem 0;
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.collection__meta {
+  padding-bottom: 1rem;
+}
+
+.collection__meta span {
+  color: var(--color-accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.collection__meta p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.45;
 }
 
 @media (max-width: 860px) {
   .collection {
     grid-template-columns: 1fr;
   }
+
+  .collection__header {
+    position: static;
+  }
 }
 
 @media (max-width: 620px) {
-  .collection__grid {
+  .collection__item,
+  .collection__item:nth-child(even) {
     grid-template-columns: 1fr;
+  }
+
+  .collection__item:nth-child(even) .collection__image {
+    order: 0;
+  }
+
+  .collection__image {
+    min-height: 380px;
   }
 }
